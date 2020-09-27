@@ -1,0 +1,9 @@
+body
+{
+    
+    background-color: #f0ffff;
+}
+.nav li {display: block; list-style-type: none;font-size: 20px; float:left; background-color: #f5f5db; box-sizing:border-box;border-right:1px solid #bbb }
+.nav li a{background-color:#f5f5db; padding: 14px 16px; text-decoration: none}
+.nav li a:hover{background-color:#e5e5c0}
+h1 {text-align:center;font-family: serif}
