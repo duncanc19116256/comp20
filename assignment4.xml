@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="a4.css" ?>
+
+<songList>
+    <song> 
+        <title>Way Back Home</title> 
+        <artist>Shaun</artist>
+        <genre>Dance/ Electric</genre>
+        <year>2018</year>
+    </song>
+    <song> 
+        <title>Lava!</title> 
+        <artist>ØZI</artist>
+        <genre>RnB/ Soul</genre>
+        <year>2020</year>
+    </song>
+    <song> 
+        <title>Don't Care</title> 
+        <artist>Rich Brian</artist>
+        <genre>Hip Pop/ Rap</genre>
+        <year>2020</year>
+    </song>
+    <song> 
+        <title>Change</title> 
+        <artist>E.SO</artist>
+        <genre>Hip Pop/RnB</genre>
+        <year>2020</year>
+    </song>
+    <song> 
+        <title>Crush on</title> 
+        <artist>Howard Lee</artist>
+        <genre>Pop</genre>
+        <year>2020</year>
+    </song>
+    <song> 
+        <title>Carry On</title> 
+        <artist>Alien W., Alan K., Bobby D.</artist>
+        <genre>Pop</genre>
+        <year>2020</year>
+    </song>
+    <song> 
+        <title>BO</title> 
+        <artist>ØZI</artist>
+        <genre>Hip Hop/ Rap</genre>
+        <year>2018</year>
+    </song>
+    <song> 
+        <title>I Got You</title> 
+        <artist>Bazzi</artist>
+        <genre>Pop</genre>
+        <year>2020</year>
+    </song>
+    <song> 
+        <title>I'm Not Alright</title> 
+        <artist>Bryce Vine, Loud Luxury</artist>
+        <genre>Dance/ Electric</genre>
+        <year>2019</year>
+    </song>
+    <song> 
+        <title>Full Stop</title> 
+        <artist>G.E.M.</artist>
+        <genre>Pop</genre>
+        <year>2019</year>
+    </song>
+
+</songList> 
