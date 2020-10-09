@@ -1,0 +1,53 @@
+<html> 
+<head>
+    
+    <title>Assignment 5a Joe's Hotdogs</title>
+    
+    
+</head>
+
+<body>
+    <header>
+    <h1>Welcome to Joe's Hotdogs</h1>
+    </header>
+    <h2>YOUR ORDERS:</h2>
+    <script language="javascript">
+        hotdogs = prompt("How many hotdogs would you like to order?", "0");
+        ff = prompt("How many fries would you like to order?", "0");
+        drinks = prompt("How many sodas would you like to order?", "0");
+        let hS = parseFloat(hotdogs * 3.25);
+        let fS = parseFloat(ff * 2.00);
+        let sS = parseFloat(drinks * 1.50);
+        subtotal = hS + fS + sS; 
+        var discount = false;
+        if (subtotal >= 20)
+        {
+            subtotal = subtotal * 0.9;
+            discount = true;
+        }
+        tax = subtotal * 0.0625;
+        total = subtotal + tax;
+
+
+
+        document.write("# of Hotdogs: " + hotdogs + "at $3.25 is $" + hS.toFixed(2)
+                + "<br>" + "# of Fries: " + ff + " at $2.00 is $" + fS.toFixed(2)
+                + "<br>" + "# of Sodas: " + drinks + " at $1.50 is $" + sS.toFixed(2));
+        if (discount) 
+        {
+            document.write("<br>" + "You qualify for our 10% discount! ");
+        }
+        document.write("<br>" + "Subtotal: $" + subtotal.toFixed(2) 
+                     + "<br>" + "Meal Tax: $" + tax.toFixed(2) 
+                     + "<br>" + "Total: $" + total.toFixed(2));
+    </script>
+
+
+    
+</body>
+
+
+
+
+
+</html>
