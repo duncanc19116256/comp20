@@ -1,0 +1,81 @@
+<html> 
+<head>
+    <title>Assignment 5b QuickPick</title>
+    
+</head>
+
+<body>
+    <header>
+    <h1>Lottery for Life</h1>
+    </header>
+    <script language="javascript">
+        
+        str = prompt("Please enter the five winning numbers separated by a space", "");
+        lB = prompt("Please enter the one lucky ball number", "");
+        res = str.split(" ");
+        r1 = parseInt(Math.random() * 47 + 1);
+        r2 = parseInt(Math.random() * 47 + 1);
+        r3 = parseInt(Math.random() * 47 + 1);
+        r4 = parseInt(Math.random() * 47 + 1);
+        r5 = parseInt(Math.random() * 47 + 1);
+        rL = parseInt(Math.random() * 17 + 1);
+
+        document.write("The quick pick numbers are: " 
+                    + r1 + " "
+                    + r2 + " "
+                    + r3 + " "
+                    + r4 + " " 
+                    + r5 + " <br>");
+        count = 0;
+        document.write("The lucky ball number is " + rL + "<br><br>");
+
+        document.write("The winning numbers are: ");
+        for (i = 0; i <= 4; i++)
+        {
+            document.write(res[i] + " ");
+            if (res[i] == r1 
+                || res[i] == r2 
+                || res[i] == r3 
+                || res[i] == r4 
+                || res[i] == r5 )
+                {
+                    count++;
+                }
+        }
+        document.write("<br>The lucky ball number is " + lB);
+
+        document.write("<br><br>You matched " + count + " numbers");
+        if (lB == rL)
+            document.write(" and lucky ball number " + lB);
+        
+        document.write("<br> You Win! Your payout is: ")
+        if (count == 5 && lB == rL)
+            document.write("$7,000 a WEEK for LIFE.");
+        else if (count == 5)
+            document.write("$25,000 a YEAR for LIFE.");
+        else if (count == 4 && lB == rL)
+            document.write("$5,000.");
+        else if (count == 4)
+            document.write("$200.");
+        else if (count == 3 && lB == rL)
+            document.write("$150.");
+        else if (count == 3 )
+            document.write("$20.");
+        else if (count == 2 && lB == rL)
+            document.write("$25.");
+        else if (count == 2)
+            document.write("$3.");
+        else if (count == 1 && lB == rL)
+            document.write("$6.");
+        else if (count == 0 && lB == rL)
+            document.write("$4.");
+        else
+            document.write("$0.");
+        
+
+        
+    </script>
+    
+</body>
+
+</html>
