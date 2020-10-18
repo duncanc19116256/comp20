@@ -1,0 +1,113 @@
+<html> 
+    <head>
+        <title>Assignment 6 Amicable Number</title>
+        <script language="javascript">
+            function isFactor(numb, poss)
+            {
+                if ((numb % poss) == 0)
+                    return true;
+                else    
+                    return false;
+            }
+            // This is for testing
+            // if (isFactor(5,2))
+            //     alert("true");
+            // else
+            //     alert("false");
+
+            function showArray(arr)
+            {
+                res = "[";                
+                for (var i = 0; i < arr.length; i++)
+                {
+                    
+                    res += arr[i];
+                    if (i != arr.length -1)
+                        res += ", ";
+                }
+                res += "]"
+                return res;
+                
+            }
+            // tested the function with onclick in body for both showArray and addArray and getFactors
+            // function testArr()
+            // {
+            //     document.getElementById("amiNumber").innerHTML = getFactors(220);
+            // }
+
+            function addArray(arr)
+            {
+                res = 0;
+                for (var i = 0; i < arr.length; i++)
+                {
+                    res += arr[i];
+                }
+                return res;
+            }
+            
+            function getFactors(numb)
+            {
+                var res = [];
+                for (var i = 0; i < numb; i++)
+                {
+                    if (isFactor(numb, i))
+                        res.push(i);
+                }
+                return res;
+            }
+            
+            
+            function getAll()
+                {
+                    var numb1 = document.getElementById("box1").value;
+                    var numb2 = document.getElementById("box2").value;
+                    var res1 = addArray(getFactors(numb1));
+                    var res2 = addArray(getFactors(numb2));
+
+                    // adding to innerHTML
+                    document.getElementById("num1").innerHTML = "Number 1 factors: ";
+                    document.getElementById("num1").innerHTML += showArray(getFactors(numb1));
+                    document.getElementById("num1").innerHTML += " and sums up to: ";
+                    document.getElementById("num1").innerHTML += res1;
+                    document.getElementById("num2").innerHTML = "Number 2 factors: ";
+                    document.getElementById("num2").innerHTML += showArray(getFactors(numb2));
+                    document.getElementById("num2").innerHTML += " and sums up to: ";
+                    document.getElementById("num2").innerHTML += res2;
+                    
+                    // checks if they are amicable numbs
+                    if (res1 == numb2 && res2 == numb1)
+                        document.getElementById("amiNumber").innerHTML = "Number "
+                                                                    + numb1 
+                                                                    + " and Number "
+                                                                    + numb2
+                                                                    + " are amicable numbers!";
+                    else
+                        document.getElementById("amiNumber").innerHTML = "Number "
+                                                                        + numb1 
+                                                                        + " and Number "
+                                                                        + numb2
+                                                                        + " are not amicable numbers.";
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+        <h1>Find Amicable Numbers</h1>
+        </header>
+        <h2>1st Number: </h2>
+        <input type="text" class="txtBox" name="firstTxt" id="box1">
+        <h2>2nd Number: </h2>
+        <input type="text" class="txtBox" name="secondTxt" id="box2"> <br><br>
+        <input type="button" id="buttBox" onclick="getAll()" value= "Check"><br><br> 
+        <div id="num1">&nbsp;</div><br><br>
+        <div id="num2">&nbsp;</div><br><br>
+
+        <div id="amiNumber">&nbsp;</div> <br>
+
+        
+        
+        
+    </body>
+
+</html>
