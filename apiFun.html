@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+
+	<title>HOLIDAY API</title>
+	<meta charset="utf-8"/>
+	<script>
+		function getWeather() {
+			/* Step 1: Make instance of request object...
+			...to make HTTP request after page is loaded*/
+			request = new XMLHttpRequest();
+			console.log("1 - request object created");
+ 
+			// Step 2: Set the URL for the AJAX request to be the JSON file
+ 
+		request.open("GET", "https://calendarific.com/api/v2/holidays?&api_key=7e5c7c9a9fb0836e6561077f4b2b959fc68409ac&country=TW&year=2020", true);
+
+			console.log("2 - opened request file");
+ 
+			// Step 3: set up event handler/callback
+
+			request.onreadystatechange = function() {
+				console.log("3 - readystatechange event fired.");
+ 
+				if (request.readyState == 4 && request.status == 200) {
+
+					// Step 5: wait for done + success
+					console.log("5 - response received");
+					result = request.responseText;
+                    alert(result);
+                    // document.write(result);
+                    hol = JSON.parse(result);
+                    document.getElementById("data").innerHTML = ""; 
+                    for (var i = 0; i < hol["response"]["holidays"].length; i++ )
+                    {
+                        document.getElementById("data").innerHTML += "<strong>" + hol["response"]["holidays"][i].name + "</strong><br>"; 
+                        document.getElementById("data").innerHTML += "ABOUT: <br>&nbsp;&nbsp;&nbsp;&nbsp;" + hol["response"]["holidays"][i].description  + "<br>"; 
+                        document.getElementById("data").innerHTML += "WHEN: <br>&nbsp;&nbsp;&nbsp;&nbsp;" + hol["response"]["holidays"][i].date.iso  + "<br>"; 
+                        document.getElementById("data").innerHTML += "<br>"; 
+
+					
+                    }
+                    
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+				}
+
+				else if (request.readyState == 3) {
+
+					document.getElementById("data").innerHTML = "Too soon!  Try again";
+
+				}
+
+			}
+		// Step 4: fire off the HTTP request
+			request.send();
+			console.log("4 - Request sent");
+		}
+	</script>
+</head>
+
+
+<body onload="getWeather()">
+
+    <h1>🇹🇼2020 Holidays in TAIWAN🇹🇼</h1>
+    <div>
+        NOTE:<br>
+        This calendar API gives you access to different holidays in the country you specified in the link.
+        <br> I found it here: https://calendarific.com/api-documentation
+        <br> In the API request, I chose Taiwan for the country field, and 2020 for the year. 
+        <br> This API would be extremely useful when you want an organized list of holidays in a certain country, 
+            also, it could be used easily for producing calendars, or products that you wish containing these information in different years. 
+        <br> Acknoledgment: In this assignment, I used the example file given by Lisa as template.
+        <br><br><br>
+    </div>
+	<div id="data">Loading...</div>
+</body>
+</html>
