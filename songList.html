@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Song Selector</title>
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <style>
+        ul 
+        {
+            list-style-type: none;
+        }
+    </style>
+        <script language="javascript">
+
+            function genreClick()
+            {
+                console.log("here");
+                var check ="";
+                var op = document.getElementById("selection").selectedIndex;
+                $.get( "https://duncanc19116256.github.io/comp20/cover.json", 
+                function( data ) {
+                
+                    strHTML= "";
+
+                    data.forEach(function(song) { 
+                        if (op == 0)
+                        {
+                            strHTML = strHTML + "<ul>" 
+                            + "<li><strong>" + song.Title + "</strong></li>"
+                            + "<li>" + "Artist: " + song.Artist + "</li>"
+                            + "<li>" + "Genre: " + song.Genre + "</li>"
+                            + "<li>" + "Released: " + song.Year + "</li>"
+                            +"</ul>";
+                        }
+                        else{
+                            console.log("changed");
+                            check = document.getElementById("selection").options[op].text;
+                            console.log("check: " + check);
+                            console.log("genre: " + song.Genre)
+                            console.log(song.Genre.localeCompare(check) == 0);
+                            if (song.Genre.localeCompare(check) == 0)
+                            {
+                                console.log(song.Genre);
+                                strHTML = strHTML + "<ul>" 
+                                + "<li><strong>" + song.Title + "</strong></li>"
+                                + "<li>" + "Artist: " + song.Artist + "</li>"
+                                + "<li>" + "Genre: " + song.Genre + "</li>"
+                                + "<li>" + "Released: " + song.Year + "</li>"
+                                +"</ul>";
+                            }
+
+                        }
+                        
+                    }) 
+                    document.getElementById("display").innerHTML = strHTML;  
+                })
+
+            }
+
+            window.onload = function()
+            {
+                document.getElementById("selection").addEventListener('change', function()
+                {
+                    genreClick();
+                })
+            }
+        </script>
+</head>
+
+<body>
+    <h1>Song Selector</h1>
+    <!-- <input type="button" value="VIEW ALL" id="show"> -->
+    <br>Pick Song Genre To Show:
+    <select name="sList" size="1"  id="selection">
+        <option>VIEW ALL</option>
+        <option>Dance/ Electric</option>
+        <option>RnB/ Soul</option>
+        <option>Hip Pop/ Rap</option>
+        <option>Hip Pop/ RnB</option>
+        <option>Pop</option>
+    </select>    
+    <div id=display></div>
+	<script language="javascript">
+        
+
+        $.get( "https://duncanc19116256.github.io/comp20/cover.json", 
+            function( data ) {
+                strHTML= "";
+
+            data.forEach(function(song) { 
+            strHTML = strHTML + "<ul>" 
+                    + "<li><strong>" + song.Title + "</strong></li>"
+                    + "<li>" + "Artist: " + song.Artist + "</li>"
+                    + "<li>" + "Genre: " + song.Genre + "</li>"
+                    + "<li>" + "Released: " + song.Year + "</li>"
+                    +"</ul>";
+                }) 
+        document.getElementById("display").innerHTML += strHTML;  
+        })
+
+
+    </script>
+</body>
+</html>
