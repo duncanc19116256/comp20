@@ -59,7 +59,7 @@
 
             window.onload = function()
             {
-                document.getElementById("selection").addEventListener('change', function()
+                document.getElementById("filt").addEventListener('click', function()
                 {
                     genreClick();
                 })
@@ -71,7 +71,7 @@
     <h1>Song Selector</h1>
     <!-- <input type="button" value="VIEW ALL" id="show"> -->
     <br>Pick Song Genre To Show:
-    <select name="sList" size="1"  id="selection">
+    <select name="sList" size="1"  id="selection" >
         <option>VIEW ALL</option>
         <option>Dance/ Electric</option>
         <option>RnB/ Soul</option>
@@ -79,6 +79,7 @@
         <option>Hip Pop/ RnB</option>
         <option>Pop</option>
     </select>    
+    <input type="button" id="filt" value="FILTER"> 
     <div id=display></div>
 	<script language="javascript">
         
