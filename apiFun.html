@@ -27,8 +27,7 @@
 					// Step 5: wait for done + success
 					console.log("5 - response received");
 					result = request.responseText;
-                    alert(result);
-                    // document.write(result);
+                   
                     hol = JSON.parse(result);
                     document.getElementById("data").innerHTML = ""; 
                     for (var i = 0; i < hol["response"]["holidays"].length; i++ )
